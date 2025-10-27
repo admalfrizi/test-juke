@@ -50,6 +50,8 @@ public class EmployeeService implements IEmployeeService
 
     @Override
     public void deleteEmployee(Long id) {
-        employeeRepository.deleteById(id);
+        Employee checkData = employeeRepository.findById(id).orElseThrow(() ->  new EntityNotFoundException("Data yang ingin di hapus tidak ada"));
+
+        employeeRepository.deleteById((long) checkData.getId());
     }
 }
