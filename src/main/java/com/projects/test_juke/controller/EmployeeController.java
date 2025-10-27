@@ -6,9 +6,9 @@ import com.projects.test_juke.service.IEmployeeService;
 import com.projects.test_juke.utils.response.ResponseHandler;
 import com.projects.test_juke.utils.response.ResponseHelper;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Null;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -83,7 +83,7 @@ public class EmployeeController {
                     HttpStatus.OK,
                     true
             );
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             return ResponseHandler.generateResponse(
                     null,
                     e.getMessage(),
@@ -93,15 +93,49 @@ public class EmployeeController {
         }
     }
 
-    @PostMapping("/{id}")
-    public void updateEmployee()
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseHelper<Employee>> updateEmployee(@PathVariable long id, @Valid @RequestBody EmployeeFormRequest employee)
     {
+        try
+        {
+            Employee responseData = employeeService.updateEmployee(id, employee);
 
+            return ResponseHandler.generateResponse(
+                    responseData,
+                    "Data employee telah berhasil di update",
+                    HttpStatus.OK,
+                    true
+            );
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(
+                    null,
+                    e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    false
+            );
+        }
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployee()
+    public ResponseEntity<ResponseHelper<Null>> deleteEmployee(@PathVariable long id)
     {
+        try
+        {
+            employeeService.deleteEmployee(id);
 
+            return ResponseHandler.generateResponse(
+                    null,
+                    "Data employee telah berhasil di update",
+                    HttpStatus.OK,
+                    true
+            );
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(
+                    null,
+                    e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    false
+            );
+        }
     }
 }
