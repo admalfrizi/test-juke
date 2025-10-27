@@ -125,7 +125,7 @@ public class EmployeeController {
 
             return ResponseHandler.generateResponse(
                     null,
-                    "Data employee telah berhasil di update",
+                    "Data employee telah berhasil di hapus",
                     HttpStatus.OK,
                     true
             );
