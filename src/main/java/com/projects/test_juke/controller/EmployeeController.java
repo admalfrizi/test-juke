@@ -5,6 +5,8 @@ import com.projects.test_juke.model.request.EmployeeFormRequest;
 import com.projects.test_juke.service.IEmployeeService;
 import com.projects.test_juke.utils.response.ResponseHandler;
 import com.projects.test_juke.utils.response.ResponseHelper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Null;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
+@Tag(name = "API Employee Management", description = "APIs for managing employee")
 public class EmployeeController {
 
     private final IEmployeeService employeeService;
@@ -23,6 +26,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    @Operation(summary = "Get All Employee Data", description = "Menampilkan semua karyawan")
     @GetMapping
     public ResponseEntity<ResponseHelper<List<Employee>>> getAllEmployee()
     {
@@ -47,6 +51,7 @@ public class EmployeeController {
 
     }
 
+    @Operation(summary = "Create a New Employee Data", description = "Menambahkan data karyawan baru")
     @PostMapping
     public ResponseEntity<ResponseHelper<Employee>> createEmployee(@Valid @RequestBody EmployeeFormRequest employee)
     {
@@ -70,6 +75,7 @@ public class EmployeeController {
         }
     }
 
+    @Operation(summary = "Get one employee data", description = "Menampilkan detail 1 karyawan")
     @GetMapping("/{id}")
     public ResponseEntity<ResponseHelper<Employee>> getOneEmployee(@PathVariable long id)
     {
@@ -93,6 +99,7 @@ public class EmployeeController {
         }
     }
 
+    @Operation(summary = "Update a existing employee data", description = "Mengubah data karyawan")
     @PutMapping("/{id}")
     public ResponseEntity<ResponseHelper<Employee>> updateEmployee(@PathVariable long id, @Valid @RequestBody EmployeeFormRequest employee)
     {
@@ -116,6 +123,7 @@ public class EmployeeController {
         }
     }
 
+    @Operation(summary = "Delete a Employee Data", description = "Menghapus data karyawan")
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseHelper<Null>> deleteEmployee(@PathVariable long id)
     {
