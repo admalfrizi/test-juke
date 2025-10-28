@@ -119,7 +119,10 @@ Selanjutnya, projek sudah berjalan dengan url `http://localhost:8080/` untuk bis
 URL berikut `http://localhost:8080/swagger-ui/index.html`
 
 
+## Hasil Screenshot 
 
+Get All Employee | Get One Employee
+--- | --- 
 
 
 
