@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: springboot-api
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=host.docker.internal 
+      - DB_PORT=5432
+      - DB_NAME=testjuke-db 
+      - DB_USER=root
+      - DB_PASS=lokal26
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
