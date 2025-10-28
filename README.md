@@ -1,7 +1,7 @@
-# Test-Juke: Spring Boot API
+# Employee Management API
 
-A brief description of your project.
-[Describe your project's purpose here. What problem does this API solve? e.g., "A Spring Boot REST API for managing a music library..."]
+Projek ini merupakan sistem manajemen karyawan yang memungkinkan untuk mengelola data karyawan.
+Sistem ini dibangun dengan menggunakan SpringBoot Java dengan Database PostgreSQL
 
 ---
 
