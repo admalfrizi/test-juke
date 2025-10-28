@@ -124,6 +124,9 @@ URL berikut `http://localhost:8080/swagger-ui/index.html`
 
 Get All Employee | Get One Employee
 --- | --- 
+![](https://github.com/admalfrizi/test-juke/blob/master/Screenshot/Screenshot%20(89).png)  | ![](https://github.com/admalfrizi/test-juke/blob/master/Screenshot/Screenshot%20(90).png)
 
-
+Create New Employee | Update One Employee
+--- | --- 
+![](https://github.com/admalfrizi/test-juke/blob/master/Screenshot/Screenshot%20(91).png) | ![](https://github.com/admalfrizi/test-juke/blob/master/Screenshot/Screenshot%20(92).png)
 
