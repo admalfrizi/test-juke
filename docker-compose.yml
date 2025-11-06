@@ -27,6 +27,8 @@ services:
       - DB_PASS=lokal26
     networks:
       - my-network
+    depends_on:
+      - db
 
 networks:
   my-network:
