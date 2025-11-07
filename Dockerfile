@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 # Copy the JAR file into the container
 COPY build/libs/*.jar app-v2.jar
