@@ -104,7 +104,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
 
 Jalankan command pada terminal jetbrains untuk Melakukan build pada gradle :
 ``` bash
-./gradlew build
+./gradlew build -x test
 ```
 
 ### 3. Setup Docker 
